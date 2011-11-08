@@ -55,6 +55,11 @@ elif [ $ACTION = "help" ] ; then
 				echo " ----------------------------"
 			fi
 		done
+	else
+		echo "there is the supported languages :"
+		for l in $( ls $MFORMATER_HOME/langs/ ); do
+			echo "  - $l" 
+		done
 	fi
 elif [ $ACTION = "init" ] ; then
 	echo "make a dummy mformater.conf"
