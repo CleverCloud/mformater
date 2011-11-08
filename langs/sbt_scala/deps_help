@@ -1,0 +1,5 @@
+This scala formater use sbt plugin addSbtPlugin("com.typesafe.sbtscalariform" % "sbt-scalariform" % "0.1.4")
+
+Configure on sbt and use sbt format
+
+

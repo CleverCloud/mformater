@@ -1,1 +1,8 @@
-this is help
+mformat help you to format your source code
+usage : mformat {cmd}
+	
+	* format : will format your source
+
+	* testdeps : try if you can format and how you can resolve problems
+
+	* help : provide this help and help about the language you use

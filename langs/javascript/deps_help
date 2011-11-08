@@ -1,1 +1,4 @@
-help for deps
+=> js-beautify
+ > This javascript formater is used by http://jsbeautifier.org/ and source code is on github https://github.com/einars/js-beautify
+ > On mac, there is some port like py-jsbeautifier of py2[4..8]-jsbeautifier
+ > Try a search on your linux

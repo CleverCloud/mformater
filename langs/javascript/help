@@ -1,0 +1,3 @@
+This plugin use js-beautify to format the javascript source code
+
+if you don't want format one of the file, name it *.min.js or *.noformat.js
