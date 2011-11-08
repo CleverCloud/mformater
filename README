@@ -4,6 +4,17 @@ At the begining the tool is design for pre-commit usage.
 
 
 
+HOW TO INSTALL :
+just clone the repository and add on the PATH
+
+HOW TO USE :
+mformater help
+
+
+NEED CONTRIBUTION :
+about others sources languages ;-)
+
+
 
 mformater is a LGPL v3 software
 
