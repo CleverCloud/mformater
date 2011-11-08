@@ -69,6 +69,17 @@ elif [ $ACTION = "init" ] ; then
 	for l in $( ls $MFORMATER_HOME/langs/ ); do
 		echo "#$l" >> mformater.conf
 	done
+elif [ $ACTION = "install_precommit" ] ; then
+	if [ -e .git ] ; then
+		echo "" >> .git/hooks/pre-commit
+		echo "# mformat part of the hook" >> .git/hooks/pre-commit
+		echo "mformat precommit" >> .git/hooks/pre-commit
+		chmod +x .git/hooks/pre-commit
+		echo "precommit hook installed"
+		echo "do you have init your mformat.conf ?"
+	else
+		echo "I don't find the .git directory"
+	fi
 else
 	echo "try : mformater help"
 fi
