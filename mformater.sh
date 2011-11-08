@@ -56,6 +56,14 @@ elif [ $ACTION = "help" ] ; then
 			fi
 		done
 	fi
+elif [ $ACTION = "init" ] ; then
+	echo "make a dummy mformater.conf"
+	if [ -e mformater.conf ] ; then
+		echo "" >> mformater.conf
+	fi
+	for l in $( ls $MFORMATER_HOME/langs/ ); do
+		echo "#$l" >> mformater.conf
+	done
 else
 	echo "try : mformater help"
 fi
