@@ -2,6 +2,15 @@ MFORMATER_HOME=`dirname $0`
 MFORMATER_PROJECT=`pwd`
 ACTION=""
 
+function find_conf_file {
+    if [ -e mformater.conf ] ; then
+		echo "mformater.conf :-)"
+	else
+		echo "mformater.conf not found"
+		exit 1
+	fi
+}
+
 if [ -z $1 ] ; then
 	ACTION="help"
 else
@@ -9,6 +18,7 @@ else
 fi
 
 if [ $ACTION = "testdeps" ] ; then
+	find_conf_file
 	for l in $( cat $MFORMATER_PROJECT/mformater.conf ); do
 		if [ ${l:0:1} != \# ] ; then
 			for d in $( cat $MFORMATER_HOME/langs/$l/deps ); do
@@ -18,6 +28,7 @@ if [ $ACTION = "testdeps" ] ; then
 		fi
 	done
 elif [ $ACTION = "format" -o $ACTION = "precommit" ] ; then
+	find_conf_file
 	for l in $( cat $MFORMATER_PROJECT/mformater.conf ); do
 		if [ ${l:0:1} != \# ] ; then
 			for d in $( cat $MFORMATER_HOME/langs/$l/deps ); do
@@ -35,8 +46,18 @@ elif [ $ACTION = "format" -o $ACTION = "precommit" ] ; then
 elif [ $ACTION = "help" ] ; then
 	cat $MFORMATER_HOME/help_home
 	echo " "
+	if [ -e mformater.conf ] ; then
+		for l in $( cat $MFORMATER_PROJECT/mformater.conf ); do
+			if [ ${l:0:1} != \# ] ; then
+				echo " ----------------------------"
+				echo " |||| doc for $l"
+				cat $MFORMATER_HOME/langs/$l/help
+				echo " ----------------------------"
+			fi
+		done
+	fi
 else
-	echo "try mformater help"
+	echo "try : mformater help"
 fi
 
 
